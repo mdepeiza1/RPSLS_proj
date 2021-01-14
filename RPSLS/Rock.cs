@@ -8,5 +8,10 @@ namespace RPSLS
 {
     class Rock : Gesture
     {
+        public Rock()
+        {
+            name = "Rock";
+            identifier = 0;
+        }
     }
 }

@@ -8,5 +8,11 @@ namespace RPSLS
 {
     abstract class Gesture
     {
+        public string name;
+        public int identifier;
+        public Gesture()
+        {
+
+        }
     }
 }

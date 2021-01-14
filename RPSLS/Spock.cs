@@ -8,5 +8,10 @@ namespace RPSLS
 {
     class Spock : Gesture
     {
+        public Spock()
+        {
+            name = "Spock";
+            identifier = 4;
+        }
     }
 }
