@@ -18,7 +18,7 @@ namespace RPSLS
             //if user picks single player create human and cpu
             //else make two humans
             DisplayRules();
-            ChooseSingleOrMultiPlayer();
+            CreatePlayers(ChooseSingleOrMultiPlayer());
         }
 
         //member methods
@@ -65,6 +65,18 @@ namespace RPSLS
                 }
             }
             return result1;
+        }
+        public void CreatePlayers(int choiceOfMultiOrSinglePlayer)
+        {
+            playerOne = new Human();
+            if (choiceOfMultiOrSinglePlayer == 1)
+            {
+                playerTwo = new CPU();
+            }
+            if(choiceOfMultiOrSinglePlayer == 2)
+            {
+                playerTwo = new Human();
+            }
         }
     }
 }

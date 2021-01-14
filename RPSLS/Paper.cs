@@ -11,7 +11,7 @@ namespace RPSLS
         public Paper()
         {
             name = "Paper";
-            identifier = 1;
+            identifier = 1; //might need to be changed to 2
         }
     }
 }

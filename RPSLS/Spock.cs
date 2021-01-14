@@ -11,7 +11,7 @@ namespace RPSLS
         public Spock()
         {
             name = "Spock";
-            identifier = 4;
+            identifier = 4; //might need to be changed to 5
         }
     }
 }

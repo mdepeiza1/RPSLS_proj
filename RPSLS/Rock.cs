@@ -11,7 +11,7 @@ namespace RPSLS
         public Rock()
         {
             name = "Rock";
-            identifier = 0;
+            identifier = 0; //might need to be changed to 1
         }
     }
 }

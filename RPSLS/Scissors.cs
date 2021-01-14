@@ -11,7 +11,7 @@ namespace RPSLS
         public Scissors()
         {
             name = "Scissors";
-            identifier = 2;
+            identifier = 2; //might need to be changed to 3
         }
     }
 }
