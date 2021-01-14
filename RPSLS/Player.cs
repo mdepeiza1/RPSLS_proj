@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class Player
+    abstract class Player
     {
+        public List<Gesture> chosenGestures;
+        public Player()
+        {
+
+        } 
     }
 }

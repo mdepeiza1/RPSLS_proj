@@ -17,6 +17,10 @@ namespace RPSLS
         {
             //if user picks single player create human and cpu
             //else make two humans
+            
+        }
+        public void RunGame()
+        {
             DisplayRules();
             CreatePlayers(ChooseSingleOrMultiPlayer());
         }
