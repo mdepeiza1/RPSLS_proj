@@ -8,5 +8,9 @@ namespace RPSLS
 {
     class CPU : Player
     {
+        public CPU()
+        {
+
+        }
     }
 }

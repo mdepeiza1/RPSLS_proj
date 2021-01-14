@@ -17,12 +17,14 @@ namespace RPSLS
         {
             //if user picks single player create human and cpu
             //else make two humans
+            // should this be where I call my ChoosePlayer?
             
         }
         public void RunGame()
         {
             DisplayRules();
             CreatePlayers(ChooseSingleOrMultiPlayer());
+            Battle();
         }
 
         //member methods
@@ -81,6 +83,36 @@ namespace RPSLS
             {
                 playerTwo = new Human();
             }
+        }
+        public void Battle()
+        {
+            int playerOneChoice;
+            int playerTwoChoice;
+
+            Console.WriteLine("Player One, choose your gesture! " +
+                "1 is Rock. " +
+                "2 is Paper. " +
+                "3 is Scissors. " +
+                "4 is Lizard. " +
+                "5 is Spock. ");
+            playerOneChoice = Int32.Parse(Console.ReadLine());
+
+            if(playerOneChoice == 1)
+            {
+                playerOne.weaponry.ElementAt(playerOneChoice - 1);
+            }
+            else if(playerOneChoice == 2)
+            {
+
+            }
+
+            Console.WriteLine("Player Two, choose your gesture! " +
+                "1 is Rock. " +
+                "2 is Paper. " +
+                "3 is Scissors. " +
+                "4 is Lizard. " +
+                "5 is Spock. ");
+            playerTwoChoice = Int32.Parse(Console.ReadLine());
         }
     }
 }
