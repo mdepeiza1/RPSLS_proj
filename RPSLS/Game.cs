@@ -104,6 +104,7 @@ namespace RPSLS
             int playerTwoChoice;
             Gesture g1;
             Gesture g2;
+            Random randomNumberFrom1To5 = new Random();
 
             while (p1score < 2 && p2score < 2)
             {
@@ -113,7 +114,25 @@ namespace RPSLS
                     "3 is Scissors. " +
                     "4 is Lizard. " +
                     "5 is Spock. ");
-                playerOneChoice = Int32.Parse(Console.ReadLine());
+                while(true)
+                {
+                    if (Int32.TryParse(Console.ReadLine(), out int choice))
+                    {
+                        if(choice > 5 || choice < 1)
+                        {
+                            Console.WriteLine("Please enter an integer from 1 to 5.");
+                        }
+                        else
+                        {
+                            playerOneChoice = choice;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please enter an integer.");
+                    }
+                }
                 g1 = playerOne.weaponry.ElementAt(playerOneChoice - 1);
 
                 Console.WriteLine("Player Two, choose your gesture! " +
@@ -122,7 +141,7 @@ namespace RPSLS
                     "3 is Scissors. " +
                     "4 is Lizard. " +
                     "5 is Spock. ");
-                playerTwoChoice = Int32.Parse(Console.ReadLine());
+                playerTwoChoice = randomNumberFrom1To5.Next(1,5);
                 g2 = playerTwo.weaponry.ElementAt(playerTwoChoice - 1);
 
                 BattleLogic(g1, g2);
@@ -144,7 +163,25 @@ namespace RPSLS
                     "3 is Scissors. " +
                     "4 is Lizard. " +
                     "5 is Spock. ");
-                playerOneChoice = Int32.Parse(Console.ReadLine());
+                while (true)
+                {
+                    if (Int32.TryParse(Console.ReadLine(), out int choice))
+                    {
+                        if (choice > 5 || choice < 1)
+                        {
+                            Console.WriteLine("Please enter an integer from 1 to 5.");
+                        }
+                        else
+                        {
+                            playerOneChoice = choice;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please enter an integer.");
+                    }
+                }
                 g1 = playerOne.weaponry.ElementAt(playerOneChoice - 1);
 
                 Console.WriteLine("Player Two, choose your gesture! " +
@@ -153,7 +190,25 @@ namespace RPSLS
                     "3 is Scissors. " +
                     "4 is Lizard. " +
                     "5 is Spock. ");
-                playerTwoChoice = Int32.Parse(Console.ReadLine());
+                while (true)
+                {
+                    if (Int32.TryParse(Console.ReadLine(), out int choice))
+                    {
+                        if (choice > 5 || choice < 1)
+                        {
+                            Console.WriteLine("Please enter an integer from 1 to 5.");
+                        }
+                        else
+                        {
+                            playerTwoChoice = choice;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please enter an integer.");
+                    }
+                }
                 g2 = playerTwo.weaponry.ElementAt(playerTwoChoice - 1);
 
                 BattleLogic(g1, g2);
