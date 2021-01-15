@@ -135,12 +135,7 @@ namespace RPSLS
                 }
                 g1 = playerOne.weaponry.ElementAt(playerOneChoice - 1);
 
-                Console.WriteLine("Player Two, choose your gesture! " +
-                    "1 is Rock. " +
-                    "2 is Paper. " +
-                    "3 is Scissors. " +
-                    "4 is Lizard. " +
-                    "5 is Spock. ");
+                Console.WriteLine("Now the CPU is choosing a gesture!");
                 playerTwoChoice = randomNumberFrom1To5.Next(1,5);
                 g2 = playerTwo.weaponry.ElementAt(playerTwoChoice - 1);
 
