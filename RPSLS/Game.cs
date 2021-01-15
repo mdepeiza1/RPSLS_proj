@@ -37,6 +37,7 @@ namespace RPSLS
             {
                 TwoPlayerBattle();
             }
+            DisplayWinner(choiceOfMultiOrSinglePlayer);
         }
 
         //member methods
@@ -107,7 +108,7 @@ namespace RPSLS
             while (p1score < 2 && p2score < 2)
             {
                 Console.WriteLine("Player One, choose your gesture! " +
-                    "1 is Rock. " +
+                    "1 is Rock. " +                      //may have to change this to playerOne.weaponry.ElementAt(0).name
                     "2 is Paper. " +
                     "3 is Scissors. " +
                     "4 is Lizard. " +
@@ -261,10 +262,36 @@ namespace RPSLS
                 p2score++;
                 Console.WriteLine("Player Two won!");
             }
-            else
+            else //The gestures should be the same.
             {
                 Console.WriteLine("There was a tie!");
             }
+        }
+
+        public void DisplayWinner(int choiceOfMultiOrSingle)
+        {
+            if(choiceOfMultiOrSingle == 1)
+            {
+                if (p1score == 2)
+                {
+                    Console.WriteLine("Player One won the game!");
+                }
+                if (p2score == 2)
+                {
+                    Console.WriteLine("The CPU won the game!");
+                }
+            }
+            else
+            {
+                if (p1score == 2)
+                {
+                    Console.WriteLine("Player One won the game!");
+                }
+                if (p2score == 2)
+                {
+                    Console.WriteLine("Player Two won the game!");
+                }
+            } 
         }
     }
 }
