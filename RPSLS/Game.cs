@@ -136,7 +136,7 @@ namespace RPSLS
                 g1 = playerOne.weaponry.ElementAt(playerOneChoice - 1);
 
                 Console.WriteLine("Now the CPU is choosing a gesture!");
-                playerTwoChoice = randomNumberFrom1To5.Next(1,5);
+                playerTwoChoice = randomNumberFrom1To5.Next(1,6);
                 g2 = playerTwo.weaponry.ElementAt(playerTwoChoice - 1);
 
                 BattleLogic(g1, g2);
