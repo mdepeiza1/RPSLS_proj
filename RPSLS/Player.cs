@@ -22,6 +22,9 @@ namespace RPSLS
             weaponry.Add(scissors);
             weaponry.Add(lizard);
             weaponry.Add(spock);
-        } 
+        }
+
+        public abstract Tuple<int, int> CompareGestures(int p1score, int p2score, Gesture g1, Gesture g2);
+        public abstract Gesture ThrowGesture(int i);
     }
 }

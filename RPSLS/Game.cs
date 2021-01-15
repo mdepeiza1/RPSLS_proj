@@ -22,6 +22,20 @@ namespace RPSLS
             // should this be where I call my ChoosePlayer?
             
         }
+
+        // Display Rules
+        // Choose Single or Multiplayer
+        // RunGame Logic
+        // compare gestures for a round, 
+        // score the round
+        // and keep track of a winner once a certain score is hit
+
+        //public void CompareGestures()
+        //{ 
+        //  logic: displayGestures
+        //  logic: ThrowGestures
+        //  logic: Compare the Gestures
+        //}
         public void RunGame()
         {
             int choiceOfMultiOrSinglePlayer;
@@ -32,11 +46,11 @@ namespace RPSLS
             {
                 OnePlayerBattle();
             }
-            
-            if(choiceOfMultiOrSinglePlayer == 2)
+            else
             {
                 TwoPlayerBattle();
             }
+
             DisplayWinner(choiceOfMultiOrSinglePlayer);
         }
 
@@ -98,7 +112,8 @@ namespace RPSLS
             }
         }
 
-        public void OnePlayerBattle()
+        public void OnePlayerBattle() // Could this be a single method for 
+            // two player and one player?
         {
             int playerOneChoice;
             int playerTwoChoice;
@@ -114,7 +129,7 @@ namespace RPSLS
                     "3 is Scissors. " +
                     "4 is Lizard. " +
                     "5 is Spock. ");
-                while(true)
+                while(true) // helper method?
                 {
                     if (Int32.TryParse(Console.ReadLine(), out int choice))
                     {
@@ -133,11 +148,11 @@ namespace RPSLS
                         Console.WriteLine("Please enter an integer.");
                     }
                 }
-                g1 = playerOne.weaponry.ElementAt(playerOneChoice - 1);
+                g1 = playerOne.ThrowGesture(playerOneChoice);
 
                 Console.WriteLine("Now the CPU is choosing a gesture!");
                 playerTwoChoice = randomNumberFrom1To5.Next(1,6);
-                g2 = playerTwo.weaponry.ElementAt(playerTwoChoice - 1);
+                g2 = playerTwo.ThrowGesture(playerTwoChoice);
 
                 BattleLogic(g1, g2);
             }
@@ -177,7 +192,7 @@ namespace RPSLS
                         Console.WriteLine("Please enter an integer.");
                     }
                 }
-                g1 = playerOne.weaponry.ElementAt(playerOneChoice - 1);
+                g1 = playerOne.ThrowGesture(playerOneChoice);
 
                 Console.WriteLine("Player Two, choose your gesture! " +
                     "1 is Rock. " +
@@ -204,7 +219,7 @@ namespace RPSLS
                         Console.WriteLine("Please enter an integer.");
                     }
                 }
-                g2 = playerTwo.weaponry.ElementAt(playerTwoChoice - 1);
+                g2 = playerTwo.ThrowGesture(playerTwoChoice);
 
                 BattleLogic(g1, g2);
             }
@@ -212,110 +227,9 @@ namespace RPSLS
 
         public void BattleLogic(Gesture g1, Gesture g2)
         {
-            if(g1.name == "Rock" && g2.name == "Scissors")
-            {
-                p1score++;
-                Console.WriteLine("Player One won!");
-            }
-            else if (g1.name == "Paper" && g2.name == "Rock")
-            {
-                p1score++;
-                Console.WriteLine("Player One won!");
-            }
-            else if (g1.name == "Scissors" && g2.name == "Paper")
-            {
-                p1score++;
-                Console.WriteLine("Player One won!");
-            }
-            else if (g1.name == "Rock" && g2.name == "Lizard")
-            {
-                p1score++;
-                Console.WriteLine("Player One won!");
-            }
-            else if (g1.name == "Paper" && g2.name == "Spock")
-            {
-                p1score++;
-                Console.WriteLine("Player One won!");
-            }
-            else if (g1.name == "Scissors" && g2.name == "Lizard")
-            {
-                p1score++;
-                Console.WriteLine("Player One won!");
-            }
-            else if (g1.name == "Lizard" && g2.name == "Spock")
-            {
-                p1score++;
-                Console.WriteLine("Player One won!");
-            }
-            else if (g1.name == "Spock" && g2.name == "Scissors")
-            {
-                p1score++;
-                Console.WriteLine("Player One won!");
-            }
-            else if (g1.name == "Lizard" && g2.name == "Paper")
-            {
-                p1score++;
-                Console.WriteLine("Player One won!");
-            }
-            else if (g1.name == "Spock" && g2.name == "Rock")
-            {
-                p1score++;
-                Console.WriteLine("Player One won!");
-            }
-            else if (g2.name == "Rock" && g1.name == "Scissors")
-            {
-                p2score++;
-                Console.WriteLine("Player Two won!");
-            }
-            else if (g2.name == "Paper" && g1.name == "Rock")
-            {
-                p2score++;
-                Console.WriteLine("Player Two won!");
-            }
-            else if (g2.name == "Scissors" && g1.name == "Paper")
-            {
-                p2score++;
-                Console.WriteLine("Player Two won!");
-            }
-            else if (g2.name == "Rock" && g1.name == "Lizard")
-            {
-                p2score++;
-                Console.WriteLine("Player Two won!");
-            }
-            else if (g2.name == "Paper" && g1.name == "Spock")
-            {
-                p2score++;
-                Console.WriteLine("Player Two won!");
-            }
-            else if (g2.name == "Scissors" && g1.name == "Lizard")
-            {
-                p2score++;
-                Console.WriteLine("Player Two won!");
-            }
-            else if (g2.name == "Lizard" && g1.name == "Spock")
-            {
-                p2score++;
-                Console.WriteLine("Player Two won!");
-            }
-            else if (g2.name == "Spock" && g1.name == "Scissors")
-            {
-                p2score++;
-                Console.WriteLine("Player Two won!");
-            }
-            else if (g2.name == "Lizard" && g1.name == "Paper")
-            {
-                p2score++;
-                Console.WriteLine("Player Two won!");
-            }
-            else if (g2.name == "Spock" && g1.name == "Rock")
-            {
-                p2score++;
-                Console.WriteLine("Player Two won!");
-            }
-            else //The gestures should be the same.
-            {
-                Console.WriteLine("There was a tie!");
-            }
+           var scores = playerOne.CompareGestures(p1score, p2score, g1, g2); // might need to put the logic of this method back into BattleLogic()
+           p1score = scores.Item1;
+            p2score = scores.Item2;
         }
 
         public void DisplayWinner(int choiceOfMultiOrSingle)
@@ -342,6 +256,10 @@ namespace RPSLS
                     Console.WriteLine("Player Two won the game!");
                 }
             } 
+        }
+        public void CompareGestures()
+        {
+
         }
     }
 }
