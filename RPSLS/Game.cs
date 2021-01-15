@@ -123,13 +123,10 @@ namespace RPSLS
 
             while (p1score < 2 && p2score < 2)
             {
-                Console.WriteLine("Player One, choose your gesture! " +
-                    "1 is Rock. " +                      //may have to change this to playerOne.weaponry.ElementAt(0).name
-                    "2 is Paper. " +
-                    "3 is Scissors. " +
-                    "4 is Lizard. " +
-                    "5 is Spock. ");
-                while(true) // helper method?
+                Console.WriteLine("Player One, choose your gesture! ");
+                playerOne.DisplayGestures();
+
+                while (true) // helper method?
                 {
                     if (Int32.TryParse(Console.ReadLine(), out int choice))
                     {
@@ -167,12 +164,8 @@ namespace RPSLS
 
             while (p1score < 2 && p2score < 2)
             {
-                Console.WriteLine("Player One, choose your gesture! " +
-                    "1 is Rock. " +
-                    "2 is Paper. " +
-                    "3 is Scissors. " +
-                    "4 is Lizard. " +
-                    "5 is Spock. ");
+                Console.WriteLine("Player One, choose your gesture! ");
+                playerOne.DisplayGestures();
                 while (true)
                 {
                     if (Int32.TryParse(Console.ReadLine(), out int choice))
@@ -194,12 +187,8 @@ namespace RPSLS
                 }
                 g1 = playerOne.ThrowGesture(playerOneChoice);
 
-                Console.WriteLine("Player Two, choose your gesture! " +
-                    "1 is Rock. " +
-                    "2 is Paper. " +
-                    "3 is Scissors. " +
-                    "4 is Lizard. " +
-                    "5 is Spock. ");
+                Console.WriteLine("Player Two, choose your gesture! ");
+                playerTwo.DisplayGestures();
                 while (true)
                 {
                     if (Int32.TryParse(Console.ReadLine(), out int choice))

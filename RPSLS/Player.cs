@@ -26,5 +26,7 @@ namespace RPSLS
 
         public abstract Tuple<int, int> CompareGestures(int p1score, int p2score, Gesture g1, Gesture g2);
         public abstract Gesture ThrowGesture(int i);
+
+        public abstract void DisplayGestures();
     }
 }

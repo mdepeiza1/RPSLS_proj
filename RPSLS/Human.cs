@@ -16,9 +16,13 @@ namespace RPSLS
         // a way to display gestures
 
         // a way to choose gestures
-        public void DisplayGestures()
+        public override void DisplayGestures()
         {
-
+            Console.WriteLine("1 is Rock. " +
+                    "2 is Paper. " +
+                    "3 is Scissors. " +
+                    "4 is Lizard. " +
+                    "5 is Spock. ");
         }
         public override Gesture ThrowGesture(int i)
         {
