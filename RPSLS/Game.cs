@@ -22,9 +22,19 @@ namespace RPSLS
         }
         public void RunGame()
         {
+            int choiceOfMultiOrSinglePlayer;
             DisplayRules();
-            CreatePlayers(ChooseSingleOrMultiPlayer());
-            Battle();
+            choiceOfMultiOrSinglePlayer = ChooseSingleOrMultiPlayer();
+            CreatePlayers(choiceOfMultiOrSinglePlayer);
+            if(choiceOfMultiOrSinglePlayer == 1)
+            {
+                OnePlayerBattle();
+            }
+            
+            if(choiceOfMultiOrSinglePlayer == 2)
+            {
+                TwoPlayerBattle();
+            }
         }
 
         //member methods
@@ -84,7 +94,8 @@ namespace RPSLS
                 playerTwo = new Human();
             }
         }
-        public void Battle()
+
+        public void OnePlayerBattle()
         {
             int playerOneChoice;
             int playerTwoChoice;
@@ -96,15 +107,7 @@ namespace RPSLS
                 "4 is Lizard. " +
                 "5 is Spock. ");
             playerOneChoice = Int32.Parse(Console.ReadLine());
-
-            if(playerOneChoice == 1)
-            {
-                playerOne.weaponry.ElementAt(playerOneChoice - 1);
-            }
-            else if(playerOneChoice == 2)
-            {
-
-            }
+            playerOne.weaponry.ElementAt(playerOneChoice - 1);
 
             Console.WriteLine("Player Two, choose your gesture! " +
                 "1 is Rock. " +
@@ -113,6 +116,32 @@ namespace RPSLS
                 "4 is Lizard. " +
                 "5 is Spock. ");
             playerTwoChoice = Int32.Parse(Console.ReadLine());
+            playerTwo.weaponry.ElementAt(playerTwoChoice - 1);
+        }
+
+        public void TwoPlayerBattle()
+        {
+            int playerOneChoice;
+            int playerTwoChoice;
+
+            Console.WriteLine("Player One, choose your gesture! " +
+                "1 is Rock. " +
+                "2 is Paper. " +
+                "3 is Scissors. " +
+                "4 is Lizard. " +
+                "5 is Spock. ");
+            playerOneChoice = Int32.Parse(Console.ReadLine());
+            playerOne.weaponry.ElementAt(playerOneChoice - 1);
+          
+
+            Console.WriteLine("Player Two, choose your gesture! " +
+                "1 is Rock. " +
+                "2 is Paper. " +
+                "3 is Scissors. " +
+                "4 is Lizard. " +
+                "5 is Spock. ");
+            playerTwoChoice = Int32.Parse(Console.ReadLine());
+            playerTwo.weaponry.ElementAt(playerTwoChoice - 1);
         }
     }
 }
