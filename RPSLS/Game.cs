@@ -13,6 +13,7 @@ namespace RPSLS
         Player playerTwo;
         int p1score = 0;
         int p2score = 0;
+        int choiceOfMultiPlayerOrSinglePlayer;
 
         //constructor
         public Game()
@@ -20,7 +21,9 @@ namespace RPSLS
             //if user picks single player create human and cpu
             //else make two humans
             // should this be where I call my ChoosePlayer?
-            
+            DisplayRules();
+            choiceOfMultiPlayerOrSinglePlayer = ChooseSingleOrMultiPlayer();
+            CreatePlayers(choiceOfMultiPlayerOrSinglePlayer);
         }
 
         // Display Rules
@@ -38,11 +41,7 @@ namespace RPSLS
         //}
         public void RunGame()
         {
-            int choiceOfMultiOrSinglePlayer;
-            DisplayRules();
-            choiceOfMultiOrSinglePlayer = ChooseSingleOrMultiPlayer();
-            CreatePlayers(choiceOfMultiOrSinglePlayer);
-            if(choiceOfMultiOrSinglePlayer == 1)
+            if(choiceOfMultiPlayerOrSinglePlayer == 1)
             {
                 OnePlayerBattle();
             }
@@ -51,7 +50,7 @@ namespace RPSLS
                 TwoPlayerBattle();
             }
 
-            DisplayWinner(choiceOfMultiOrSinglePlayer);
+            DisplayWinner(choiceOfMultiPlayerOrSinglePlayer);
         }
 
         //member methods
