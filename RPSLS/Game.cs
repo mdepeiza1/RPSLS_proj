@@ -41,14 +41,8 @@ namespace RPSLS
         //}
         public void RunGame()
         {
-            if(choiceOfMultiPlayerOrSinglePlayer == 1)
-            {
-                OnePlayerBattle();
-            }
-            else
-            {
-                TwoPlayerBattle();
-            }
+
+            Battle(choiceOfMultiPlayerOrSinglePlayer);
 
             DisplayWinner(choiceOfMultiPlayerOrSinglePlayer);
         }
@@ -111,8 +105,7 @@ namespace RPSLS
             }
         }
 
-        public void OnePlayerBattle() // Could this be a single method for 
-            // two player and one player?
+        public void Battle(int OneOrTwoPlayer)
         {
             int playerOneChoice;
             int playerTwoChoice;
@@ -129,48 +122,6 @@ namespace RPSLS
                 {
                     if (Int32.TryParse(Console.ReadLine(), out int choice))
                     {
-                        if(choice > 5 || choice < 1)
-                        {
-                            Console.WriteLine("Please enter an integer from 1 to 5.");
-                        }
-                        else
-                        {
-                            playerOneChoice = choice;
-                            break;
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Please enter an integer.");
-                    }
-                }
-                g1 = playerOne.ThrowGesture(playerOneChoice);
-                //g1 = playerOne.weaponry[playerOneChoice];
-
-                Console.WriteLine("Now the CPU is choosing a gesture!");
-                playerTwoChoice = randomNumberFrom1To5.Next(1,6);
-                g2 = playerTwo.ThrowGesture(playerTwoChoice);
-                //g2 = playerTwo.weaponry[playerTwoChoice];
-
-                BattleLogic(g1, g2);
-            }
-        }
-
-        public void TwoPlayerBattle()
-        {
-            int playerOneChoice;
-            int playerTwoChoice;
-            Gesture g1;
-            Gesture g2;
-
-            while (p1score < 2 && p2score < 2)
-            {
-                Console.WriteLine("Player One, choose your gesture! ");
-                playerOne.DisplayGestures();
-                while (true)
-                {
-                    if (Int32.TryParse(Console.ReadLine(), out int choice))
-                    {
                         if (choice > 5 || choice < 1)
                         {
                             Console.WriteLine("Please enter an integer from 1 to 5.");
@@ -189,30 +140,41 @@ namespace RPSLS
                 g1 = playerOne.ThrowGesture(playerOneChoice);
                 //g1 = playerOne.weaponry[playerOneChoice];
 
-                Console.WriteLine("Player Two, choose your gesture! ");
-                playerTwo.DisplayGestures();
-                while (true)
+                if(OneOrTwoPlayer == 1)
                 {
-                    if (Int32.TryParse(Console.ReadLine(), out int choice))
+
+                    Console.WriteLine("Now the CPU is choosing a gesture!");
+                    playerTwoChoice = randomNumberFrom1To5.Next(1, 6);
+                    g2 = playerTwo.ThrowGesture(playerTwoChoice);
+                    //g2 = playerTwo.weaponry[playerTwoChoice];
+                }
+                else
+                {
+                    Console.WriteLine("Player Two, choose your gesture! ");
+                    playerTwo.DisplayGestures();
+                    while (true)
                     {
-                        if (choice > 5 || choice < 1)
+                        if (Int32.TryParse(Console.ReadLine(), out int choice))
                         {
-                            Console.WriteLine("Please enter an integer from 1 to 5.");
+                            if (choice > 5 || choice < 1)
+                            {
+                                Console.WriteLine("Please enter an integer from 1 to 5.");
+                            }
+                            else
+                            {
+                                playerTwoChoice = choice;
+                                break;
+                            }
                         }
                         else
                         {
-                            playerTwoChoice = choice;
-                            break;
+                            Console.WriteLine("Please enter an integer.");
                         }
                     }
-                    else
-                    {
-                        Console.WriteLine("Please enter an integer.");
-                    }
+                    g2 = playerTwo.ThrowGesture(playerTwoChoice);
+                    // BattleLogic(playerTwo.weaponry[index], other player gesture); 
+                    //g2 = playerTwo.weaponry[playerTwoChoice];
                 }
-                g2 = playerTwo.ThrowGesture(playerTwoChoice);
-                // BattleLogic(playerTwo.weaponry[index], other player gesture); 
-                //g2 = playerTwo.weaponry[playerTwoChoice];
 
                 BattleLogic(g1, g2);
             }
