@@ -216,9 +216,9 @@ namespace RPSLS
 
         public void BattleLogic(Gesture g1, Gesture g2)
         {
-           var scores = playerOne.CompareGestures(p1score, p2score, g1, g2); // might need to put the logic of this method back into BattleLogic()
-           p1score = scores.Item1;
-            p2score = scores.Item2;
+                var scores = playerTwo.CompareGestures(p1score, p2score, g1, g2); // might need to put the logic of this method back into BattleLogic()
+                p1score = scores.Item1;
+                p2score = scores.Item2;
         }
 
         public void DisplayWinner(int choiceOfMultiOrSingle)
@@ -245,10 +245,6 @@ namespace RPSLS
                     Console.WriteLine("Player Two won the game!");
                 }
             } 
-        }
-        public void CompareGestures()
-        {
-
         }
     }
 }

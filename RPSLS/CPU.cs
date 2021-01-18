@@ -80,52 +80,52 @@ namespace RPSLS
             else if (g2.name == "Rock" && g1.name == "Scissors")
             {
                 p2score++;
-                Console.WriteLine("Player Two won!");
+                Console.WriteLine("The CPU won!");
             }
             else if (g2.name == "Paper" && g1.name == "Rock")
             {
                 p2score++;
-                Console.WriteLine("Player Two won!");
+                Console.WriteLine("The CPU won!");
             }
             else if (g2.name == "Scissors" && g1.name == "Paper")
             {
                 p2score++;
-                Console.WriteLine("Player Two won!");
+                Console.WriteLine("The CPU won!");
             }
             else if (g2.name == "Rock" && g1.name == "Lizard")
             {
                 p2score++;
-                Console.WriteLine("Player Two won!");
+                Console.WriteLine("The CPU won!");
             }
             else if (g2.name == "Paper" && g1.name == "Spock")
             {
                 p2score++;
-                Console.WriteLine("Player Two won!");
+                Console.WriteLine("The CPU won!");
             }
             else if (g2.name == "Scissors" && g1.name == "Lizard")
             {
                 p2score++;
-                Console.WriteLine("Player Two won!");
+                Console.WriteLine("The CPU won!");
             }
             else if (g2.name == "Lizard" && g1.name == "Spock")
             {
                 p2score++;
-                Console.WriteLine("Player Two won!");
+                Console.WriteLine("The CPU won!");
             }
             else if (g2.name == "Spock" && g1.name == "Scissors")
             {
                 p2score++;
-                Console.WriteLine("Player Two won!");
+                Console.WriteLine("The CPU won!");
             }
             else if (g2.name == "Lizard" && g1.name == "Paper")
             {
                 p2score++;
-                Console.WriteLine("Player Two won!");
+                Console.WriteLine("The CPU won!");
             }
             else if (g2.name == "Spock" && g1.name == "Rock")
             {
                 p2score++;
-                Console.WriteLine("Player Two won!");
+                Console.WriteLine("The CPU won!");
             }
             else //The gestures should be the same.
             {
