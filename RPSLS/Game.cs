@@ -25,20 +25,6 @@ namespace RPSLS
             choiceOfMultiPlayerOrSinglePlayer = ChooseSingleOrMultiPlayer();
             CreatePlayers(choiceOfMultiPlayerOrSinglePlayer);
         }
-
-        // Display Rules
-        // Choose Single or Multiplayer
-        // RunGame Logic
-        // compare gestures for a round, 
-        // score the round
-        // and keep track of a winner once a certain score is hit
-
-        //public void CompareGestures()
-        //{ 
-        //  logic: displayGestures
-        //  logic: ThrowGestures
-        //  logic: Compare the Gestures
-        //}
         public void RunGame()
         {
 
@@ -138,7 +124,6 @@ namespace RPSLS
                     }
                 }
                 g1 = playerOne.ThrowGesture(playerOneChoice);
-                //g1 = playerOne.weaponry[playerOneChoice];
 
                 if(OneOrTwoPlayer == 1)
                 {
@@ -146,7 +131,6 @@ namespace RPSLS
                     Console.WriteLine("Now the CPU is choosing a gesture!");
                     playerTwoChoice = randomNumberFrom1To5.Next(1, 6);
                     g2 = playerTwo.ThrowGesture(playerTwoChoice);
-                    //g2 = playerTwo.weaponry[playerTwoChoice];
                 }
                 else
                 {
@@ -172,8 +156,6 @@ namespace RPSLS
                         }
                     }
                     g2 = playerTwo.ThrowGesture(playerTwoChoice);
-                    // BattleLogic(playerTwo.weaponry[index], other player gesture); 
-                    //g2 = playerTwo.weaponry[playerTwoChoice];
                 }
 
                 BattleLogic(g1, g2);
@@ -212,32 +194,5 @@ namespace RPSLS
                 }
             } 
         }
-        //public bool chooseMultiorSinglePlayerTryParse(int result1, out int replaceResult)
-        //{
-        //    if (Int32.TryParse(Console.ReadLine(), out int result2))
-        //    {
-        //        if ((result2 == 1) || (result2 == 2))
-        //        {
-        //            replaceResult = result2;
-        //            return true;
-        //        }
-        //        else
-        //        {
-        //            Console.WriteLine("Your input was not 1 or 2. " +
-        //            "Please enter either 1 or 2.");
-        //            return false;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        Console.WriteLine("Your input was not an integer. " +
-        //            "Please enter an integer.");
-        //        return false;
-        //    }
-        //}
-        //public bool chooseGestureTryParse()
-        //{
-
-        //}
     }
 }
